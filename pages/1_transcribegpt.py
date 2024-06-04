@@ -1,14 +1,6 @@
-import nltk
 import youtubegpt as YtGPT
-
-nltk.download('punkt')
-
 import streamlit as st
-import pandas as pd
-import numpy as np
-import os
 
-st.title('YouTubeGPT')
 st.write('Paste a YouTube URL below')
 
 youtube_video = st.text_input(label="YouTube URLs",  
