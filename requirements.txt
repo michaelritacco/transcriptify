@@ -3,3 +3,4 @@ openai
 langchain
 langchain_community
 nltk
+youtube-transcript-api
