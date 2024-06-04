@@ -6,6 +6,8 @@ from langchain.prompts import PromptTemplate
 from langchain.document_loaders import YoutubeLoader
 from openai import OpenAI
 from nltk.tokenize import word_tokenize, sent_tokenize
+import nltk
+nltk.download('punkt')
 
 import streamlit as st
 
