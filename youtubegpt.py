@@ -7,8 +7,11 @@ from langchain.document_loaders import YoutubeLoader
 from openai import OpenAI
 from nltk.tokenize import word_tokenize, sent_tokenize
 import nltk
+import os
 
 nltk.download('punkt')
+
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
 # def load_LLM(openai_api_key):
 #     llm = ChatOpenAI(temperature=0, openai_api_key=openai_api_key, model_name='gpt-4o')
@@ -21,6 +24,10 @@ def get_youtube_transcript(url):
     return transcript
 
 def process_transcript(transcription):
+    client = OpenAI(
+        api_key=OPENAI_API_KEY,
+    )
+    
     # Split the transcription by token limit
     segments = split_text_by_token_limit(transcription, max_tokens=500)
 

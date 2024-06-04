@@ -8,14 +8,6 @@ import pandas as pd
 import numpy as np
 import os
 
-OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
-
-from openai import OpenAI
-
-client = OpenAI(
-    api_key=OPENAI_API_KEY,
-)
-
 
 st.title('YouTubeGPT')
 st.write('Paste a YouTube URL below')
