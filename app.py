@@ -8,7 +8,6 @@ import pandas as pd
 import numpy as np
 import os
 
-
 st.title('YouTubeGPT')
 st.write('Paste a YouTube URL below')
 
