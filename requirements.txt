@@ -1,11 +1,3 @@
-langchain==0.2.1
-langchain-community==0.2.1
-langchain-core==0.2.3
-langchain-openai==0.1.8
-langchain-text-splitters==0.2.0
-langsmith==0.1.67
-nltk==3.8.1
-numpy @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_cfbbnu3tzv/croot/numpy_and_numpy_base_1704311724719/work/dist/numpy-1.26.3-cp310-cp310-macosx_11_0_arm64.whl#sha256=ccbf655215ec644fb09de935330d2602e8101b485f43bc98fefdd9ada37b9193
-openai==1.26.0
-streamlit==1.35.0
-youtube-transcript-api==0.6.2
+streamlit
+openai
+langchain
