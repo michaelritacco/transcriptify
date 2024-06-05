@@ -1,6 +1,8 @@
 import youtubegpt as YtGPT
 import streamlit as st
 
+st.title('Transcribe GPT')
+
 st.write('Paste a YouTube URL below')
 
 youtube_video = st.text_input(label="YouTube URLs",  
