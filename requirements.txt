@@ -7,4 +7,4 @@ langchain_community
 nltk
 pymupdf
 chromadb
-pysqlite3
+pysqlite3-binary

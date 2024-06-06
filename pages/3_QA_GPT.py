@@ -13,6 +13,10 @@ import tempfile
 import os
 import pandas as pd
 
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 st.title('Welcome to File QA RAG Chatbot')
 
 @st.cache_resource(ttl='1h')
