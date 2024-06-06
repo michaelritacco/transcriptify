@@ -27,3 +27,5 @@ if button_ind:
     formatted_transcript = YtGPT.process_transcript(transcript)
     col2.download_button('Download ChatGPT Transcription', formatted_transcript)
     col2.write(formatted_transcript)
+
+
