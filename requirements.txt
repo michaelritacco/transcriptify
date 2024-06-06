@@ -8,3 +8,4 @@ nltk
 pymupdf
 chromadb
 pysqlite3-binary
+tiktoken
