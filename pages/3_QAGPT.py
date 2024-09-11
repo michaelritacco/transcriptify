@@ -127,10 +127,13 @@ class PostMessageHandler(BaseCallbackHandler):
         if len(self.sources):
             st.markdown('__Sources:__' + '\n')
             # st.dataframe(data=pd.DataFrame(self.sources[:3]), width=1000)
-            for source in self.sources:
-                source_info = f"**Document:** {source['source']}, **Page:** {source['page']}\n"
-                content_snippet = f"> {source['content']}...\n"
-                st.markdown(source_info + content_snippet)
+            source_df = pd.DataFrame(self.sources[:3])
+            source_df.columns = ['Source', 'Page', 'Content Snippet']
+            st.dataframe(source_df, width=1000)
+            # for source in self.sources:
+            #     source_info = f"**Document:** {source['source']}, **Page:** {source['page']}\n"
+            #     content_snippet = f"{source['content']}...\n"
+            #     st.markdown(source_info + content_snippet)
 
 if user_prompt := st.chat_input():
     st.chat_message('human').write(user_prompt)
