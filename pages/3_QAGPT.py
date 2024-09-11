@@ -129,6 +129,7 @@ class PostMessageHandler(BaseCallbackHandler):
             # st.dataframe(data=pd.DataFrame(self.sources[:3]), width=1000)
             source_df = pd.DataFrame(self.sources[:3])
             source_df.columns = ['Source', 'Page', 'Content Snippet']
+            source_df['Source'] = source_df['Source'].apply(lambda x: x.split('/')[-1])
             st.dataframe(source_df, width=1000)
             # for source in self.sources:
             #     source_info = f"**Document:** {source['source']}, **Page:** {source['page']}\n"
