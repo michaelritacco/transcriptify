@@ -1,9 +1,9 @@
 import youtubegpt as YtGPT
 import streamlit as st
 
-st.title('Transcribe GPT')
+st.title('TranscribeGPT')
 
-st.write("Paste a YouTube URL below to get your transcription. Please note runtime will somewhat varry depending on the length of YouTube video.")
+st.write("Paste a YouTube URL below to get your raw and clean transcriptions. Please note runtime will somewhat varry depending on the length of YouTube video.")
 
 youtube_video = st.text_input(label="YouTube URL",  
                               placeholder="Ex: https://www.youtube.com/watch?v=c_hO_fjmMnk", 

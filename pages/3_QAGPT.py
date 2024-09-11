@@ -17,7 +17,9 @@ __import__('pysqlite3')
 import sys
 sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
-st.title('Welcome to File QA RAG Chatbot')
+st.title('QARAG Chatbot')
+
+st.write('Please upload a PDF document and begin asking questions.')
 
 @st.cache_resource(ttl='1h')
 def configure_retriever(uploaded_files):
@@ -131,10 +133,6 @@ class PostMessageHandler(BaseCallbackHandler):
             source_df.columns = ['Source', 'Page', 'Content Snippet']
             source_df['Source'] = source_df['Source'].apply(lambda x: x.split('/')[-1])
             st.dataframe(source_df, width=1000)
-            # for source in self.sources:
-            #     source_info = f"**Document:** {source['source']}, **Page:** {source['page']}\n"
-            #     content_snippet = f"{source['content']}...\n"
-            #     st.markdown(source_info + content_snippet)
 
 if user_prompt := st.chat_input():
     st.chat_message('human').write(user_prompt)
