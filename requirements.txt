@@ -9,3 +9,4 @@ pymupdf
 chromadb
 pysqlite3-binary
 tiktoken
+protobuf==3.20.3
