@@ -99,7 +99,7 @@ qa_rag_chain = (
 streamlit_msg_history = StreamlitChatMessageHistory(key='langchain_messages')
 
 if len(streamlit_msg_history.messages) == 0:
-    streamlit_msg_history.add_ai_message('Please ask me any questions!')
+    streamlit_msg_history.add_ai_message('Please ask me any questions about your documents.')
 
 for msg in streamlit_msg_history.messages:
     st.chat_message(msg.type).write(msg.content)
@@ -126,7 +126,11 @@ class PostMessageHandler(BaseCallbackHandler):
     def on_llm_end(self, response, *, run_id, parent_run_id, **kwargs):
         if len(self.sources):
             st.markdown('__Sources:__' + '\n')
-            st.dataframe(data=pd.DataFrame(self.sources[:3]), width=1000)
+            # st.dataframe(data=pd.DataFrame(self.sources[:3]), width=1000)
+            for source in self.sources:
+                source_info = f"**Document:** {source['source']}, **Page:** {source['page']}\n"
+                content_snippet = f"> {source['content']}...\n"
+                st.markdown(source_info + content_snippet)
 
 if user_prompt := st.chat_input():
     st.chat_message('human').write(user_prompt)
