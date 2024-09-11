@@ -4,7 +4,9 @@ import os
 
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
-st.title('Q&A GPT')
+st.title('ChatGPT')
+
+st.write('Please ask general quesitons about any topic.')
 
 client = OpenAI(api_key=OPENAI_API_KEY)
 
