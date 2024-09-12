@@ -10,6 +10,8 @@ import nltk
 import os
 from langchain_core.prompts import ChatPromptTemplate
 from concurrent.futures import ThreadPoolExecutor
+import warnings
+warnings.filterwarnings("ignore")
 
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
@@ -43,61 +45,8 @@ def process_chunk(chunk):
     return response
 
 def process_chunk_parallel(chunks):
-    with ThreadPoolExecutor(max_workers=20) as executor:
+    with ThreadPoolExecutor(max_workers=8) as executor:
         results = list(executor.map(process_chunk, chunks))
     joined_results = '\n'.join(results)
     return joined_results
 
-# client = OpenAI(
-#         api_key=OPENAI_API_KEY,
-#     )
-
-# def load_LLM(openai_api_key):
-#     llm = ChatOpenAI(temperature=0, openai_api_key=openai_api_key, model_name='gpt-4o')
-#     return llm
-
-# def process_transcript(transcription):
-#     # Split the transcription by token limit
-#     segments = split_text_by_token_limit(transcription, max_tokens=500)
-
-#     # Process each segment to format it properly using ChatGPT
-#     formatted_segments = [process_segment(segment) for segment in segments]
-
-#     # Reassemble the formatted segments into the full transcription
-#     formatted_transcription = reassemble_text(formatted_segments)
-
-#     return formatted_transcription
-
-# def process_segment(segment):
-#     global client
-#     response = client.chat.completions.create(
-#         model="gpt-4-turbo",
-#         messages=[
-#             {"role": "user", "content": "Cleanup the following transcript into paragraphs. Make sure it has proper punction and grammer:"},
-#             {"role": "system", "content": segment}
-#         ]
-#     )
-
-#     return response.choices[0].message.content
-
-# def split_text_by_token_limit(text, max_tokens=100):
-#     words = word_tokenize(text)
-#     segments = []
-#     current_segment = []
-#     current_token_count = 0
-
-#     for word in words:
-#         current_segment.append(word)
-#         current_token_count += 1
-#         if current_token_count >= max_tokens:
-#             segments.append(' '.join(current_segment))
-#             current_segment = []
-#             current_token_count = 0
-
-#     if current_segment:
-#         segments.append(' '.join(current_segment))
-
-#     return segments
-
-# def reassemble_text(segments):
-#     return "\n\n".join(segments)
