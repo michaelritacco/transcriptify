@@ -34,15 +34,10 @@ def process_transcript(transcription):
     cleaned_transcript = process_chunk_parallel(chunks)
     return cleaned_transcript
 
-# import logging
-# logging.basicConfig(level=logging.INFO)
-
 def process_chunk(chunk):
     try:
-        # logging.debug(f"Processing chunk: {chunk[:50]}...")
         formatted_messages = prompt.format_messages(text=chunk)
         response = chain.invoke({'text': chunk}).content
-        # logging.debug(f"Received response: {response[:50]}...")
         return response
     except Exception as e:
         logging.error(f"Error processing chunk: {e}")
