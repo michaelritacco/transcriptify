@@ -7,6 +7,7 @@ import nltk
 import os
 from langchain_core.prompts import PromptTemplate, ChatPromptTemplate
 from concurrent.futures import ThreadPoolExecutor
+import logging
 
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
@@ -24,6 +25,7 @@ splitter = RecursiveCharacterTextSplitter(chunk_size=3500)
 
 def get_youtube_transcript(url):
     loader = YoutubeLoader.from_youtube_url(url, add_video_info=True)
+    logging.debug("Test Message", loader)
     documents = loader.load()
     transcript = ' '.join([doc.page_content for doc in documents])
     return transcript
