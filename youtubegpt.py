@@ -33,11 +33,20 @@ def process_transcript(transcription):
 
     cleaned_transcript = process_chunk_parallel(chunks)
     return cleaned_transcript
+    
+import logging
+logging.basicConfig(level=logging.DEBUG)
 
 def process_chunk(chunk):
-    prompt.format_messages(text=chunk)
-    response = chain.invoke(chunk).content
-    return response
+    try:
+        logging.debug(f"Processing chunk: {chunk[:50]}...")
+        formatted_messages = prompt.format_messages(text=chunk)
+        response = chain.invoke({'text': chunk}).content
+        logging.debug(f"Received response: {response[:50]}...")
+        return response
+    except Exception as e:
+        logging.error(f"Error processing chunk: {e}")
+        return ""
 
 def process_chunk_parallel(chunks):
     with ThreadPoolExecutor(max_workers=8) as executor:
