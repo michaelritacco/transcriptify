@@ -1,4 +1,4 @@
-streamlit
+streamlit==1.35.0
 openai
 langchain==0.2.2
 youtube-transcript-api==0.6.2
