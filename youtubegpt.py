@@ -1,9 +1,7 @@
-from langchain import PromptTemplate
 from langchain_community.chat_models import ChatOpenAI
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.chains.summarize import load_summarize_chain
-from langchain.prompts import PromptTemplate
-from langchain.document_loaders import YoutubeLoader
+from langchain_community.document_loaders import YoutubeLoader
 from openai import OpenAI
 from nltk.tokenize import word_tokenize, sent_tokenize
 import nltk
@@ -11,6 +9,7 @@ import os
 from langchain_core.prompts import ChatPromptTemplate
 from concurrent.futures import ThreadPoolExecutor
 import warnings
+
 warnings.filterwarnings("ignore")
 
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
