@@ -4,6 +4,7 @@ langchain==0.2.2
 youtube-transcript-api==0.6.2
 pytube
 langchain_community==0.2.3
+langchain-openai==0.2.0
 nltk
 pymupdf
 chromadb
