@@ -25,7 +25,7 @@ chain = prompt | llm
 splitter = RecursiveCharacterTextSplitter(chunk_size=3500)
 
 def get_youtube_transcript(url):
-    x = requests.get('https://www.youtube.com'/)
+    x = requests.get('https://www.youtube.com')
     logging.info('x.test' + x.text)
 
     loader = YoutubeLoader.from_youtube_url(url, add_video_info=True)
