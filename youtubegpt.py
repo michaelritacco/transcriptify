@@ -8,6 +8,7 @@ import os
 from langchain_core.prompts import PromptTemplate, ChatPromptTemplate
 from concurrent.futures import ThreadPoolExecutor
 import logging
+import requests
 
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
@@ -24,7 +25,6 @@ chain = prompt | llm
 splitter = RecursiveCharacterTextSplitter(chunk_size=3500)
 
 def get_youtube_transcript(url):
-    import requests
     x = requests.get('https://www.youtube.com'/)
     logging.info('x.test' + x.text)
 
