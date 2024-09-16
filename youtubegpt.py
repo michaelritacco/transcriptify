@@ -33,9 +33,9 @@ def process_transcript(transcription):
 
     cleaned_transcript = process_chunk_parallel(chunks)
     return cleaned_transcript
-    
+
 import logging
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 
 def process_chunk(chunk):
     try:
